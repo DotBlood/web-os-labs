@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лаба - 11</title>
+    <link rel="stylesheet" href="rest.css">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dialog.css">
+</head>
+
+<body>
+    <div class="dialog" id="dialogW">
+        <div class="dialog__inner">
+            <div class="information">
+                <p class="i-title" id="e-title">Внимание!</p>
+                <hr>
+                <textarea readonly class="i-description" id="e-des">Ошибка: </textarea>
+                <hr>
+                <div class="btns">
+                    <button onclick="closeDialog()">Понятно</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="title">
+        <h1>Ляхов Анатолий Андреевич</h1>
+        <h2> Лабораторная работа №11</h2>
+    </div>
+
+
+    <section class="workspace">
+        <div class="container">
+            <div class="workspace__inner">
+
+                <div class="block">
+                    <p class="task__num">Задание №1/Задание №2/Задание №4</p>
+
+                    <div class="block__cart">
+
+                        <div class="icon__cart">
+                            <img src="./cart.svg" alt=""><span class="counter" id="counter" hidden="hidden">
+                                <p id="ci" class="counter__inner" hidden="hidden">0</p>
+                            </span>
+                        </div>
+
+                        <div class="text">
+                            <p>
+                                Описание тавара бла бла бла бла бла
+                            </p>
+                            <p>
+                                <br> Если добавить тавар, появиться количесвто тавара, рядом с иконкой
+                            </p>
+                            <p>
+                                <br> Если тавара < 0 вылизит модельное окно, отвечающее за ошибку </p>
+                        </div>
+
+                        <div class="shop__items">
+
+                            <div class="btns">
+                                <button onclick="addItem()">Добавить</button>
+                                <button onclick="removerItem()">Убрать</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <noscript>
+        <p>Пожалуйста проверьте настройки вашего браузера на наличие потдержки JavaScript скриптов!</p>
+    </noscript>
+
+    <script>
+
+        var cart = 0;
+        var counter = document.getElementById("ci")
+        var mainb = document.getElementById("counter")
+
+
+        function addItem() {
+            cart++
+            if (cart === 1) {
+                mainb.removeAttribute("hidden")
+                counter.removeAttribute("hidden")
+                return counter.innerHTML = `${cart}`
+            } if (cart <= 99) {
+                counter.innerHTML = `${cart}`
+            } else {
+                return counter.innerHTML = `99+`
+            }
+        }
+
+        function removerItem() {
+            if (cart === 0) {
+                return shoowDialog("в карзине и так пусто ;c")
+            }
+            cart--
+            if (cart <= 0) {
+                mainb.setAttribute("hidden", "hidden")
+                counter.setAttribute("hidden", "hidden")
+            }
+            if (cart >= 99) {
+                return counter.innerHTML = `99+`
+            } else {
+                return counter.innerHTML = `${cart}`
+            }
+        }
+
+        function closeDialog() {
+            document.getElementById("dialogW").style.display = "none"
+        }
+
+        function shoowDialog(errMsg) {
+            document.getElementById("dialogW").style.display = "flex"
+            document.getElementById("e-des").innerHTML = errMsg
+            setTimeout(() => closeDialog(), (3 * 1000))
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+.dialog {
+    display: none;
+    justify-content: center;
+    justify-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+    background: rgba(82, 82, 82, 0.763);
+}
+
+.dialog__inner {
+    display: block;
+    justify-content: center;
+    padding: 15px;
+    margin-top: 10%;
+
+    width: 600px;
+    height: 500px;
+    border-radius: 15px;
+
+    background: rgb(209, 209, 209);
+    color: black;
+
+}
+
+.information .btns button {
+    width: 100%;
+}
+
+.i-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.i-description {
+    min-width: 575px;
+    max-width: 575px;
+    min-height: 350px;
+    max-height: 350px;
+    
+    padding: 10px;
+    margin: 5px auto;
+
+    border: none;
+    background: rgb(209, 209, 209);
+    
+    overflow: hidden;
+}
