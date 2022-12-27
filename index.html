@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лаба - 10</title>
+  <link rel="stylesheet" href="https://raw.githubusercontent.com/DotBlood/web-os-labs/lab11/rest.css">
+  <link rel="stylesheet" href="https://raw.githubusercontent.com/DotBlood/web-os-labs/lab11/normalize.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="title">
+    <h1>Ляхов Анатолий Андреевич</h1>
+    <h2> Лабораторная работа №10</h2>
+    <p>Большинсво работ требует входных данных, поэтому лучше вызывать их из консольки, но я сделал кнопки с названием и
+      описанием функций</p>
+  </div>
+
+  <section class="workspace">
+    <div class="container">
+      <div class="workspace__inner">
+        <button
+          onclick="alert('функция => calculated(data, typeV) data-> число с которым работаем и typeV -> (kmh или ms) тип опррации с числом str')">Задание
+          1</button>
+        <button onclick="alert('absValue()')">Задание 2</button>
+        <button onclick="alert('stud(student={})      ' )">Задание 3</button>
+        <button onclick="alert('randomNumber(min, max) ' )">Задание 4</button>
+        <button
+          onclick="alert('newArrey(oldArrey, cos) -> oldArrey произвольный масив, cos сколько дожно проходить этераций')">Задание
+          5</button>
+      </div>
+    </div>
+  </section>
+
+
+  <noscript>
+    <p>Пожалуйста проверьте настройки вашего браузера на наличие потдержки JavaScript скриптов!</p>
+  </noscript>
+
+  <script>
+
+    function calculated(data, typeV) {
+      if (!data || !typeV) {
+        console.error('Не могу понять с чем мне работать ;c');
+      }
+      if (typeV === 'kmh') {
+        return console.log(`${data} km/h  соответствует ${data / 3.6} m/s`);
+      }
+      if (typeV === 'ms') {
+        return console.log(`${data} m/s соответствует ${data * 3.6} km/h`);
+      }
+      else {
+        return console.log('Не могу понять что мне делать ;c');
+      }
+    }
+
+    function absValue(val) {
+      if (val === 0) {
+        return 0
+      }
+      if (val < 0) {
+        return val *= -1
+      }
+      return val
+    }
+
+    function stud(student = {
+      group: 201,
+      first_name: "Иван",
+      last_name: "Иванов"
+    }) {
+
+      console.log('Список свойств: group, last_name, first_name')
+      return console.log(`Студент: ${student.first_name} ${student.last_name} учится в ${student.group} группе`)
+
+    }
+
+    function randomNumber(min, max) {
+      console.log(Math.floor(Math.random() * (max - min) + min))
+    }
+
+    function newArrey(oldArrey, cos) {
+
+      let newarr = []
+
+      for (let i = 0; i < cos; i++) {
+        newarr.push(oldArrey[Math.floor(Math.random() * oldArrey.length)])
+      }
+
+      return console.log(newarr)
+
+    }
+
+
+  </script>
+</body>
+
+</html>
